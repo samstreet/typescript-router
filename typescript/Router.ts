@@ -47,26 +47,29 @@ class Router implements RouterInterface {
 
     private routes: Array<Route>;
     private config: Config;
-    private route: '/';
+    private route: String;
 
     constructor(){
         this.config = new Config();
+        this.routes = new Array<Route>();
+        this.route  = '/';
     }
     
     add( route: Route ){
-        this.routes.push( route )
+        this.routes.push( route );
+        return this;
     }
 
     remove( route: Route ){
-        
+        return this;
     }
     
     update( route: Route ){
-
+        return this;
     }
     
     listen(){
-
+        
     }
     
     go( path: string ){
@@ -74,3 +77,10 @@ class Router implements RouterInterface {
     }
 
 }
+
+window.onload = () => {
+    let router = new Router();
+    router.add( new Route() ).add( new Route() );
+
+    console.log(router);
+};

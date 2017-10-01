@@ -30,13 +30,18 @@ var Config = /** @class */ (function () {
 var Router = /** @class */ (function () {
     function Router() {
         this.config = new Config();
+        this.routes = new Array();
+        this.route = '/';
     }
     Router.prototype.add = function (route) {
         this.routes.push(route);
+        return this;
     };
     Router.prototype.remove = function (route) {
+        return this;
     };
     Router.prototype.update = function (route) {
+        return this;
     };
     Router.prototype.listen = function () {
     };
@@ -44,3 +49,8 @@ var Router = /** @class */ (function () {
     };
     return Router;
 }());
+window.onload = function () {
+    var router = new Router();
+    router.add(new Route()).add(new Route());
+    console.log(router);
+};
